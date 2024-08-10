@@ -1,0 +1,14 @@
+- name: Demo vars 
+  hosts: all 
+  vars:                                     # Play-level variables, this can be accessed by all the task of a play 
+    URL: play.google.com         
+  tasks:
+    - name: Pritning variable 
+      ansible.builtin.debug:
+        msg: "value of url is {{URL}}"
+
+    - name: Pritning variable from task2
+      ansible.builtin.debug:
+        msg: "value of url is {{URL}}" 
+      vars:                                 # task-level variables, this can be accessed by this particular task
+        URL: task.google.com
