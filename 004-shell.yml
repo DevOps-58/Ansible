@@ -4,3 +4,7 @@
   tasks:
     - name: Pritning a fact  
       ansible.builtin.shell: uptime 
+      register: output
+    - name: Pritning output
+      ansible.builtin.debug:
+        msg: "{{OUTPUT.stdout}}"
