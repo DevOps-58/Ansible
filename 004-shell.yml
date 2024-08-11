@@ -5,6 +5,7 @@
     - name: Pritning a fact  
       ansible.builtin.shell: uptime 
       register: output
-    - name: Pritning output
+
+    - name: Pritning out
       ansible.builtin.debug:
         msg: "{{OUTPUT.stdout}}"
