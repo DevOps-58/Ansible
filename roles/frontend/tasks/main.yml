@@ -1,37 +1,35 @@
+- name: Configuring hostname 
+  ansible.builtin.shell: set-hostname "{{COMPONENT}}"
+
 - name: Install nginx
   ansible.builtin.package:
     name: nginx
-    state: present
+    state: present 
 
-
-- name: Copying proxy.conf
+- name: Copying proxy file 
   ansible.builtin.copy:
     src: proxy.conf
-    dest: /etc/nginx/default.d/expense.conf 
+    dest: /etc/nginx/default.d/expense.conf  
 
-
-- name: Cleanup
+- name: Cleanup 
   ansible.builtin.file:
-    path: /usr/share/nginx/html/
+    path: "{{APP_PATH}}"
     state: absent
-
 
 - name: Creating html directory 
   ansible.builtin.file:
-    path: /usr/share/nginx/html/
+    path: "{{APP_PATH}}"
     state: directory
-    
 
-- name: Download and extracts frontend
+- name: Download & Extracting {{COMPONENT}}
   ansible.builtin.unarchive:
-    src: https://expense-web-app.s3.amazonaws.com/frontend.zip
-    dest: /usr/share/nginx/html 
-    remote_src: yes
+    src: https://expense-web-app.s3.amazonaws.com/{{COMPONENT}}.zip
+    dest: "{{APP_PATH}}"
+    remote_src: yes                             # This defines that download and extract will happen on the remote node 
 
-- name: Restarting frontend
+- name: Restarting {{COMPONENT}}
   ansible.builtin.systemd_service:
-    name: nginx
+    name: nginx 
     state: restarted
     enabled: true
     daemon_reload: true
-
