@@ -55,7 +55,7 @@
     name: all
     target: /app/schema/backend.sql
     login_user: root
-    login_password: ExpenseApp@1
+    login_password: "{{PWD}}"
     login_host: mysql.expense.internal
 
 - name: Copying Systemd file 
