@@ -38,8 +38,8 @@
 
 - name: Load Schema
   community.mysql.mysql_db:
-    state: present
-    #name: all
+    state: import
+    name: all
     target: /app/schema/backend.sql
     login_user: root
     login_password: "{{PWD}}"
