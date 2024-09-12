@@ -38,7 +38,7 @@
 
 - name: Load Schema
   community.mysql.mysql_db:
-    state: import
+    state: present
     name: all
     target: /app/schema/backend.sql
     login_user: root
