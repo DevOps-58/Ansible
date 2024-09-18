@@ -42,7 +42,7 @@
     name: all
     target: /app/schema/backend.sql
     login_user: "{{secrets.MYSQL_USER}}"
-    login_password: "{{secrets.MYSQL_PASS}}"
+    login_password: "{{secrets.MYSQL_PASS}}"         
     login_host: "mysql-{{ENV}}.expense.internal"
 
 - name: Copying Systemd file 
