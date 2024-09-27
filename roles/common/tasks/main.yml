@@ -12,7 +12,7 @@
     tasks_from: nginx-exporter     
   when: nginx_exporter
 
-- name: Configuring Grok Exporter      # Should only run for frontend as nginx is running on frontend
+- name: Configuring Grok Exporter      
   ansible.builtin.include_role:      
     name: prometheus                    
     tasks_from: grok-exporter     
