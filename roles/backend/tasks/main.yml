@@ -51,7 +51,7 @@
     target: /app/schema/backend.sql
     login_user: "{{secrets.MYSQL_USER}}"
     login_password: "{{secrets.MYSQL_PASS}}"         
-    login_host: "{{DB_HOST}}"
+    login_host: "{{secrets.DB_HOST}}"
 
 - name: Copying Systemd file 
   ansible.builtin.template:
