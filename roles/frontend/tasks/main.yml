@@ -44,7 +44,7 @@
 - name: Restart a container
   containers.podman.podman_container:
     name: frontend
-    image: docker.io/sanraman/expense-frontend
+    image: docker.io/girisha12/expense-frontend
     state: started
     restart: true
     ports:

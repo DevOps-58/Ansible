@@ -79,7 +79,7 @@
 - name: Starting Backend Container
   containers.podman.podman_container:
     name: backend
-    image: docker.io/sanraman/expense-backend:latest
+    image: docker.io/girisha12/expense-backend:latest
     state: started
     restart: true
     ports:
